@@ -1,0 +1,92 @@
+<html>
+  <body>
+    <div id="argibideak">
+      <div id="argibideak-esaldia" class="Argibideak">
+        <div class="Argibideak-laburpena">Sartu esaldi bat</div>
+      </div>
+      <div id="argibideak-aditza">
+        <div class="Argibideak">
+          <div class="Argibideak-laburpena">Identifika perpaus nagusiaren aditza</div>
+          <div class="Argibideak-xehetasunak" style="display: none">
+            Identifika esaldiaren perpaus nagusiaren aditz sintagma.
+            Hor adibideak badituzu:
+            <div>Egunero mate <span class="AditzSintagma">edaten dut</span>.</div>
+            <div><span class="AditzSintagma">Ez dut uste</span> joanen naizenik.</div>
+            <div>Nola posible <span class="AditzSintagma">da</span>?</div>
+            <div>Euskaraz argitaratzen diren liburu eta diskoen erakusleihoa <span class="AditzSintagma">osatu nahi izan du</span> BERRIAk atal honetan.</div>
+    
+            Behin egina, segi aditz mota aukeratuz.
+          </div>
+        </div>
+      </div>
+    
+      <div id="argibideak-nor">
+        <div class="Argibideak">
+          <div class="Argibideak-laburpena">Identifika NOR(ZER) argumendioa</div>
+          <div class="Argibideak-xehetasunak">
+            Aukeratu NOR argumendioa osatzen duten hitzak.<br>
+            Ez baldin bada agertzen esaldian, erabili botoi eskainian.
+          </div>
+        </div>
+      </div>
+    
+      <div id="argibideak-nori">
+        <div class="Argibideak">
+          <div class="Argibideak-laburpena">Identifika NORI(ZERI) argumendioa</div>
+          <div class="Argibideak-xehetasunak">
+            Aukeratu NOR argumendioa osatzen duten hitzak.<br>
+            Ez baldin bada agertzen esaldian, erabili botoi eskainian.
+          </div>
+        </div>
+      </div>
+    
+      <div id="argibideak-nork">
+        <div class="Argibideak">
+          <div class="Argibideak-laburpena">Identifika NORK(ZERK) argumendioa</div>
+          <div class="Argibideak-xehetasunak">
+            Aukeratu NOR argumendioa osatzen duten hitzak.<br>
+            Ez baldin bada agertzen esaldian, erabili botoi eskainian.
+          </div>
+        </div>
+      </div>
+    
+      <div id="argibideak-osagarriak" class="Argibideak">
+        <div class="Argibideak-laburpena">Identifika osagarriak</div>
+      </div>
+    </div>
+    <div id="inputContainer">
+      <textarea id="input" placeholder="ad.: Haurrak jolasten aei dira" required min-length="3"> haurrak jolasten ari dira
+      <div class="Argibideak">
+          <div class="Argibideak-laburpena">Identifika NORI(ZERI) argumendioa</div>
+          <div class="Argibideak-xehetasunak">
+            Aukeratu NOR argumendioa osatzen duten hitzak.<br>
+            Ez baldin bada agertzen esaldian, erabili botoi eskainian.
+          </div>
+      </textarea>
+    </div>
+    <div id="hautaGailua"></div>
+    <div id="ekintzak">
+      <div id="ekintzak-esaldia">
+        <button type="button" onclick="baieztatuEsaldia()">Egina</button>
+      </div>
+      <div id="ekintzak-aditza">
+      </div>
+      <div id="ekintzak-nor">
+        <button onclick="baieztatuFuntzioa('nor')">Egina</button>
+        <button onclick="ezDaAgertzen()">Ez da agertzen</button>
+      </div>
+    
+      <div id="ekintzak-nori">
+        <button onclick="baieztatuFuntzioa('nori')">Egina</button>
+        <button onclick="ezDaAgertzen()">Ez da agertzen</button>
+      </div>
+    
+      <div id="ekintzak-nork">
+        <button onclick="baieztatuFuntzioa('nork')">Egina</button>
+        <button onclick="ezDaAgertzen()">Ez da agertzen</button>
+      </div>
+    
+      <div id="ekintzak-osagarriak"> </div>
+    </div>
+  </body>
+</html>
