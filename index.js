@@ -141,10 +141,6 @@ function setAditzMota(mota) {
   baieztatuFuntzioa("aditza");
 }
 
-//
-
-refresh();
-
 function getMultzo(hitza) {
   return {
     funtzioa: hitza.funtzioa,
