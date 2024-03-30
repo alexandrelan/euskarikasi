@@ -1,1 +1,2 @@
-euskarikasi = {]
+console.info(euskarikasi");
+euskarikasi = {};
