@@ -1,5 +1,3 @@
-console.info("running");
-
 function parseEsaldia(esaldia) {
   return esaldia
     .trim()
@@ -67,8 +65,10 @@ function getStep() {
   }
 }
 
-init();
-refresh();
+document.addEventListener("load", () => {
+  init();
+  refresh();
+});
 
 function init() {
   state = {
