@@ -1,0 +1,90 @@
+body {
+  font-family: "Arial";
+  padding: 1rem;
+  user-select: none;
+}
+button {
+  height: 3rem;
+}
+
+#inputContainer {
+  margin: 1rem 0;
+}
+#input {
+  width: 100%;
+  resize: none;
+}
+
+.Argibideak-laburpena {
+  font-weight: bold;
+}
+
+#hitzakContainer {
+  padding: 1rem;
+  margin: 1rem;
+  border: 0.2rem solid green;
+}
+#hautaGailua {
+  font-family: "Courier new";
+  padding: 1rem;
+  background: lightgrey;
+  margin: 1rem 0;
+  line-height: 1.5;
+}
+.Multzo {
+  cursor: selection;
+}
+.Multzo.Multzo--selected {
+  background: blue;
+  color: white;
+}
+.Multzo.Multzo--hasFuntzioa:hover {
+  cursor: not-allowed;
+}
+.Multzo.Multzo--aditza {
+  border: 1px solid black;
+  background: orange;
+  font-weight: bold;
+}
+.Multzo.Multzo--nor,
+.Multzo.Multzo--nor::before {
+  background: lightgreen;
+}
+.Multzo.Multzo--nori,
+.Multzo.Multzo--nori::before {
+  background: lightblue;
+}
+.Multzo.Multzo--nork,
+.Multzo.Multzo--nork::before {
+  background: lightcoral;
+}
+.Multzo.Multzo--osagarria,
+.Multzo.Multzo--osagarria::before {
+  background: lightskyblue;
+}
+.Multzo-label {
+  font-size: 0.7em;
+  font-style: italic;
+}
+.Hitz {
+  cursor: pointer;
+  padding: 10px;
+}
+
+#ekintzak > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 450px) {
+  #ekintzak > div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  #ekintzak > div {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
