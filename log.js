@@ -1,4 +1,4 @@
-logUnderFingerElement(event) {
+function logUnderFingerElement(event) {
 console.log(event.type)
   console.log(event.target);
   console.log(event.currentTarget);
