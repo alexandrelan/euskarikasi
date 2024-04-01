@@ -16,7 +16,7 @@ function logUnderFingerElement(event) {
     const tag = event.target.tag;
     const text = event.target.innerText;
     const classList = event.target.classList;
-    logger.innerHTML = `${event.type} : ${tag}/${classList}/${text<br>${logger.innerHTML}`;
+    logger.innerHTML = `${event.type} : ${tag}/${classList}/${text}<br>${logger.innerHTML}`;
   }
 }
 
