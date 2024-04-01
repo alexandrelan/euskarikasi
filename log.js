@@ -1,5 +1,6 @@
 function createLogger() {
   const logger = document.createElement("div");
+  logger.id = "logger";
   logger.style.position = 'fixed';
   logger.style.bottom = '0';
   logger.style.height = '25%';
