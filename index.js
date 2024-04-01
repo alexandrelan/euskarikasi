@@ -65,21 +65,6 @@ function getStep() {
   }
 }
 
-document.addEventListener("load", () => {
-  init();
-  refresh();
-});
-
-function init() {
-  document.euskarikasi = {
-    esaldia: null,
-    hitzak: [],
-    selectedHitzak: []
-  };
-  initAditzBarra();
-  initOsagarriak();
-}
-
 function initAditzBarra() {
   const labels = ADITZ_MOTAK.map((argumendioak) => {
     return argumendioak.join("-").toUpperCase();
@@ -288,3 +273,24 @@ function refresh() {
 function getState() {
   return document.euskarikasi;
 }
+
+function init() {
+  document.body.style.opacity = .5;
+  document.euskarikasi = {
+    esaldia: null,
+    hitzak: [],
+    selectedHitzak: []
+  };
+  initAditzBarra();
+  initOsagarriak();
+  refresh();
+}
+function show() {
+ document.body.style.opacity = 1;
+}
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
+document.addEventListener("load", show);
