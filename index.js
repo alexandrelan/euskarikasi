@@ -47,18 +47,18 @@ const STEPS = {
   BUKATUA: "bukatua"
 };
 function isFuntzioaOsatua(argudioa) {
-  return state.hitzak.some(({ funtzioa }) => funtzioa === argudioa);
+  return getState().hitzak.some(({ funtzioa }) => funtzioa === argudioa);
 }
 function getStep() {
-  if (!state.esaldia) return STEPS.ESALDIA;
+  if (!getState().esaldia) return STEPS.ESALDIA;
   if (!isFuntzioaOsatua("aditza")) return STEPS.ADITZA;
-  const requiredArgumendioak = ADITZ_MOTAK[state.aditzMota];
+  const requiredArgumendioak = ADITZ_MOTAK[getState().aditzMota];
   const hurrengoArgumendioa = requiredArgumendioak.find(
     (argumendioa) => !isFuntzioaOsatua(argumendioa)
   );
   if (hurrengoArgumendioa !== undefined) {
     return STEPS[hurrengoArgumendioa.toUpperCase()];
-  } else if (state.hitzak.some(({ funtzioa }) => funtzioa === undefined)) {
+  } else if (getState().hitzak.some(({ funtzioa }) => funtzioa === undefined)) {
     return STEPS.OSAGARRIAK;
   } else {
     return STEPS.BUKATUA;
@@ -71,7 +71,7 @@ document.addEventListener("load", () => {
 });
 
 function init() {
-  state = {
+  document.euskarikasi = {
     esaldia: null,
     hitzak: [],
     selectedHitzak: []
@@ -130,14 +130,14 @@ function toggleHitza(hitza) {
   }
 }
 function baieztatuFuntzioa(funtzioa) {
-  state.hitzak.filter(isAukeratua).forEach((hitza) => {
+  getState().hitzak.filter(isAukeratua).forEach((hitza) => {
     setFuntzioa(hitza, funtzioa);
     unselectHitza(hitza);
   });
   refresh();
 }
 function setAditzMota(mota) {
-  state.aditzMota = mota;
+  getState().aditzMota = mota;
   baieztatuFuntzioa("aditza");
 }
 
@@ -151,8 +151,8 @@ function getMultzo(hitza) {
 
 function getMultzoak() {
   return (
-    state.hitzak &&
-    state.hitzak.reduce((multzoak, hitza) => {
+    getState().hitzak &&
+    getState().hitzak.reduce((multzoak, hitza) => {
       if (multzoak.length === 0) {
         multzoak.push(getMultzo(hitza));
       } else {
@@ -173,35 +173,35 @@ function getMultzoak() {
   );
 }
 function areAuzoak(hitzaA, hitzaB) {
-  const indexA = state.hitzak.indexOf(hitzaA);
-  const indexB = state.hitzak.indexOf(hitzaB);
+  const indexA = getState().hitzak.indexOf(hitzaA);
+  const indexB = getState().hitzak.indexOf(hitzaB);
   const diff = indexA - indexB;
   return diff === 1 || diff === -1;
 }
 function onHitzDown(hitza) {
   if (!isAukeratua(hitza)) {
-    state.selectionAction = "selecting";
+    getState().selectionAction = "selecting";
   } else {
-    state.selectionAction = "unselecting";
+    getState().selectionAction = "unselecting";
   }
-  state.selectingHitzak = [hitza];
+  getState().selectingHitzak = [hitza];
 }
 function onHitzMove(hitza) {
-  if (!state.selectionAction) return;
-  if (state.selectingHitzak.indexOf(hitza) >= 0) return;
+  if (!getState().selectionAction) return;
+  if (getState().selectingHitzak.indexOf(hitza) >= 0) return;
   if (
-    state.selectingHitzak.some((besteHitza) => areAuzoak(hitza, besteHitza))
+    getState().selectingHitzak.some((besteHitza) => areAuzoak(hitza, besteHitza))
   ) {
-    state.selectingHitzak.push(hitza);
+    getState().selectingHitzak.push(hitza);
   }
 }
 function onPointerUp() {
-  if (state.selectionAction === "selecting") {
-    state.selectingHitzak.forEach(selectHitza);
-  } else if (state.selectionAction === "unselecting") {
-    state.selectingHitzak.forEach(unselectHitza);
+  if (getState().selectionAction === "selecting") {
+    getState().selectingHitzak.forEach(selectHitza);
+  } else if (getState().selectionAction === "unselecting") {
+    getState().selectingHitzak.forEach(unselectHitza);
   }
-  state.selectionAction = null;
+  getState().selectionAction = null;
 }
 document.addEventListener("pointerup", onPointerUp);
 function getHitzaElement(hitza) {
@@ -215,9 +215,9 @@ function getHitzaElement(hitza) {
 }
 
 function baieztatuEsaldia() {
-  state.esaldia = document.getElementById("input").value;
-  state.hitzak = parseEsaldia(state.esaldia);
-  state.hitzak.forEach((hitza) => (hitza.element = getHitzaElement(hitza)));
+  getState().esaldia = document.getElementById("input").value;
+  getState().hitzak = parseEsaldia(getState().esaldia);
+  getState().hitzak.forEach((hitza) => (hitza.element = getHitzaElement(hitza)));
   refresh();
 }
 
@@ -246,7 +246,7 @@ function getMultzoarenElement(multzo) {
   return elm;
 }
 function refreshEsaldia() {
-  if (!state.esaldia) return;
+  if (!getState().esaldia) return;
   const multzoak = getMultzoak();
   const multzoakElements = multzoak.map(getMultzoarenElement);
   const esaldiElm = document.getElementById("hautaGailua");
@@ -284,4 +284,7 @@ function refresh() {
   refreshAgintera();
   refreshEkintzenBarra();
   refreshMainSection();
+}
+function getState() {
+  return document.euskarikasi;
 }
