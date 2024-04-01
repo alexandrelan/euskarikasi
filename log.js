@@ -2,7 +2,7 @@ function createLogger() {
   const logger = document.createElement("div");
   logger.style.position = 'fixed';
   logger.style.bottom = '0';
-  logger.height = '25%';
+  logger.style.height = '25%';
   document.body.appendChild(logger);
 }
 
