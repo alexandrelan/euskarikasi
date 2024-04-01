@@ -13,9 +13,9 @@ function logUnderFingerElement(event) {
     createLogger();
     logUnderFingerElement(event);
   } else {
-    console.log( event.type)
-    console.log(event.target);
-    console.log('---');
+    logger.innerHTML += `${event.type}<br>
+    ${event.target}<br>
+    ${console.log('---')}<br>`;
   }
 }
 
