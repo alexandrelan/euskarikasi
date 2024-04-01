@@ -13,10 +13,10 @@ function logUnderFingerElement(event) {
     createLogger();
     logUnderFingerElement(event);
   } else {
-    const tag = event.target.tag;
+    const tag = event.target.nodeName.toLowerCase();
     const text = event.target.innerText;
     const classList = event.target.classList;
-    logger.innerHTML = `${event.type} : ${tag}/${classList}/${text}<br>${logger.innerHTML}`;
+    logger.innerHTML = `${event.type} : ${tag}/${classList}/${tag === 'span' ? text : ''}<br>---<br>${logger.innerHTML}`;
   }
 }
 
