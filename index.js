@@ -286,11 +286,11 @@ function init() {
   refresh();
 }
 function show() {
- document.body.style.opacity = 1;
+ document.body.style.opacity = '';
 }
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", init);
 } else {
   init();
 }
-document.addEventListener("load", show);
+window.addEventListener("load", show);
