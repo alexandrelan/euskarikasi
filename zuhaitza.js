@@ -4,9 +4,13 @@
   }
   
   function sortuSuhaitza(esaldia) {
-      const suhaitza = {};
-      suhaitza.children = zatitu(esaldia);
-      return suhaitza;
+    const adarrak = zatitu(esaldia);
+    function emanAdarrak() {
+      return adarrak;
+    }
+    return {
+      emanAdarrak
+    };
   }
   
   function adieraziBerAdarreanDira(suhaitza, adabegia, besteadabegia) {
