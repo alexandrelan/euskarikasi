@@ -2,8 +2,14 @@ const {
   sortuSuhaitza
 } = window.euskarikasi;
 
-if (typeof sortuSuhaitza("test") !== "object") console.error();
-if (sortuSuhaitza("adio").emanAdarrak().length !== 1) console.error();
-if (sortuSuhaitza("ni naiz").emanAdarrak().length !== 2) console.error();
+function error() {
+  window.euskarikasiError = true;
+}
 
-document.body.innerHTML = "😍";
+if (typeof sortuSuhaitza("test") !== "object") error();
+if (sortuSuhaitza("adio").emanAdarrak().length !== 1) error();
+if (sortuSuhaitza("ni naiz").emanAdarrak().length !== 2) error();
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!window.euskarikasiError) document.body.innerHTML = "😍";
+});
