@@ -1,4 +1,6 @@
-import { sortuSuhaitza } from './zuhaitz.js';
+const { 
+  sortuSuhaitza
+} = window.euskarikasi;
 
 if (typeof sortuSuhaitza("test") === "object") {
     console.info("TEST OK");
