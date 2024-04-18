@@ -5,37 +5,7 @@ function parseEsaldia(esaldia) {
     .map((testua) => ({ testua }));
 }
 
-const ADITZ_MOTAK = [
-  ["nor"],
-  ["nor", "nori"],
-  ["nor", "nork"],
-  ["nor", "nori", "nork"]
-];
-const OSAGARRIAK = [
-  "non",
-  "nongo",
-  "nongoa",
-  "nondik",
-  "nora",
-  "norantz",
-  "noraino",
-  //
-  "noiz",
-  "noiztik",
-  "noiz arte",
-  //
-  "noren",
-  "norengandik",
-  "norengan",
-  "norengana",
-  "norentzat",
-  //
-  "zertarako",
-  "zergatik",
-  //
-  "nola",
-  "nolakoa"
-];
+
 
 const STEPS = {
   ESALDIA: "esaldia",
